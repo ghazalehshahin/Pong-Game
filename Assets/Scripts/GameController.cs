@@ -5,15 +5,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float upperBoundary = 7f;
-    [SerializeField] private float lowerBoundary = -11f;
+    [SerializeField] private float upperBoundary = 2f;
+    [SerializeField] private float lowerBoundary = -2f;
 
     public GameObject playerOne;
     public GameObject playerTwo;
 
-    private float verticalInput;
-
- 
     void Update()
     {
         Movement();
@@ -26,11 +23,11 @@ public class GameController : MonoBehaviour
     {
         if (player.transform.position.y <= lowerBoundary)
         {
-            player.transform.position = new Vector3(player.transform.position.x, lowerBoundary, player.transform.position.z);
+            player.transform.position = new Vector2(player.transform.position.x, lowerBoundary);
         }
         if (player.transform.position.y >= upperBoundary)
         {
-            player.transform.position = new Vector3(player.transform.position.x, upperBoundary, player.transform.position.z);
+            player.transform.position = new Vector2(player.transform.position.x, upperBoundary);
         }
     }
 
@@ -39,19 +36,19 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            playerOne.transform.Translate(Vector3.down * Time.deltaTime * speed);
+            playerOne.transform.Translate(Vector2.down * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            playerOne.transform.Translate(Vector3.up * Time.deltaTime * speed);
+            playerOne.transform.Translate(Vector2.up * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            playerTwo.transform.Translate(Vector3.up * Time.deltaTime * speed);
+            playerTwo.transform.Translate(Vector2.up * Time.deltaTime * speed);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            playerTwo.transform.Translate(Vector3.down * Time.deltaTime * speed);
+            playerTwo.transform.Translate(Vector2.down * Time.deltaTime * speed);
         }
     }
 }
