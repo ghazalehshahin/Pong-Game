@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,19 @@ public class GameController : MonoBehaviour
     public GameObject playerOne;
     public GameObject playerTwo;
 
+    private GameObject ball;
+
+    public static int playerOneScore = 0;
+    public static int playerTwoScore = 0;
+    private static GameObject score1;
+    private static GameObject score2;
+
+    private void Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("Ball");
+        score1 = GameObject.FindGameObjectWithTag("Score1");
+        score2 = GameObject.FindGameObjectWithTag("Score2");
+    }
     void Update()
     {
         Movement();
@@ -49,6 +63,20 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             playerTwo.transform.Translate(Vector2.down * Time.deltaTime * speed);
+        }
+    }
+
+    public static void Score (string wall)
+    {
+        if (wall == "left")
+        {
+            playerOneScore += 1;
+            score1.GetComponent<TextMeshProUGUI>().SetText(playerOneScore.ToString());
+        }
+        if (wall == "right")
+        {
+            playerTwoScore += 1;
+            score2.GetComponent<TextMeshProUGUI>().SetText(playerTwoScore.ToString());
         }
     }
 }

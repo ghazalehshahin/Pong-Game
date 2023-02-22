@@ -22,6 +22,16 @@ public class BallController : MonoBehaviour
             vel.y = (ballRgbd.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
             ballRgbd.velocity = vel;
         }
+
+        if (coll.collider.CompareTag("Right"))
+        {
+            GameController.Score("right");
+        }
+
+        if (coll.collider.CompareTag("Left"))
+        {
+            GameController.Score("left");
+        }
     }
 
     //Moving the ball for the first time
