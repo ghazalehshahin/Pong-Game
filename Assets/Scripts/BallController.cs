@@ -46,7 +46,7 @@ public class BallController : MonoBehaviour
             ballRgbd.AddForce(new Vector2(-20, -15));
     }
 
-    public static void ResetBall()
+    void ResetBall()
     {
         ballRgbd.velocity = Vector2.zero;
         ballRgbd.transform.position = Vector2.zero;

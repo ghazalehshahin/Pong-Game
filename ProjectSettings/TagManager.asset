@@ -9,6 +9,7 @@ TagManager:
   - Right
   - Score1
   - Score2
+  - restart
   layers:
   - Default
   - TransparentFX

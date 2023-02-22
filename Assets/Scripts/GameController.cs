@@ -33,11 +33,16 @@ public class GameController : MonoBehaviour
         LimitMovement(playerTwo);
         if (playerOneScore == 3 || playerTwoScore == 3)
         {
-            BallController.ResetBall();
+            ball.SendMessage("ResetBall");
             ResetGame();
         }
     }
 
+    public void RestartGame()
+    {
+        restartButton.SetActive(false);
+        ball.SendMessage("GoBall");
+    }
     void ResetGame()
     {
         playerOneScore = 0;
