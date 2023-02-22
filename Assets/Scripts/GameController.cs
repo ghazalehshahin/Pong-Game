@@ -6,8 +6,8 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float upperBoundary = 2f;
-    [SerializeField] private float lowerBoundary = -2f;
+    [SerializeField] private float upperBoundary = 3.3f;
+    [SerializeField] private float lowerBoundary = -3.3f;
 
     public GameObject playerOne;
     public GameObject playerTwo;

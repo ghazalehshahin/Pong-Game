@@ -1210,8 +1210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  upperBoundary: 2
-  lowerBoundary: -2
+  upperBoundary: 3.3
+  lowerBoundary: -3.3
   playerOne: {fileID: 343121052}
   playerTwo: {fileID: 1306537596}
 --- !u!4 &1629701632
@@ -1510,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1041204572757271605, guid: 8dffb8390bfd2cb4c8d9c53f61967bfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 1041204572757271605, guid: 8dffb8390bfd2cb4c8d9c53f61967bfd, type: 3}
       propertyPath: m_LocalPosition.z
