@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public static int playerTwoScore = 0;
     private static GameObject score1;
     private static GameObject score2;
+    public GameObject restartButton;
 
     private void Start()
     {
@@ -30,8 +31,21 @@ public class GameController : MonoBehaviour
         Movement();
         LimitMovement(playerOne);
         LimitMovement(playerTwo);
+        if (playerOneScore == 3 || playerTwoScore == 3)
+        {
+            BallController.ResetBall();
+            ResetGame();
+        }
     }
 
+    void ResetGame()
+    {
+        playerOneScore = 0;
+        score1.GetComponent<TextMeshProUGUI>().SetText(playerOneScore.ToString());
+        playerTwoScore = 0;
+        score2.GetComponent<TextMeshProUGUI>().SetText(playerTwoScore.ToString());
+        restartButton.SetActive(true);
+    }
     //Set limitation to users movements
     void LimitMovement(GameObject player)
     {

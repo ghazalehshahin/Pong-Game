@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    private Rigidbody2D ballRgbd;
+    private static Rigidbody2D ballRgbd;
 
     private void Start()
     {
@@ -44,5 +44,11 @@ public class BallController : MonoBehaviour
         }
         else
             ballRgbd.AddForce(new Vector2(-20, -15));
+    }
+
+    public static void ResetBall()
+    {
+        ballRgbd.velocity = Vector2.zero;
+        ballRgbd.transform.position = Vector2.zero;
     }
 }
