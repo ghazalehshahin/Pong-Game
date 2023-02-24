@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
         ballRgbd = GetComponent<Rigidbody2D>();
 
         //Ball starts moving after 2 seconds
-        Invoke("GoBall", 2);
+        GoBall(0);
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -26,17 +26,32 @@ public class BallController : MonoBehaviour
         if (coll.collider.CompareTag("Right"))
         {
             GameController.Score("right");
+            ResetBall();
+            if (GameController.playerTwoScore != 5)
+            {
+                GoBall(0);
+            }
         }
 
         if (coll.collider.CompareTag("Left"))
         {
             GameController.Score("left");
+            ResetBall();
+            if (GameController.playerOneScore != 5)
+            {
+                GoBall(0);
+            }
         }
     }
 
     //Moving the ball for the first time
-    void GoBall()
+    void GoBall(int x)
     {
+        if (x == 1)
+        {
+            GameController.playerOneScore = 0;
+            GameController.playerTwoScore = 0;
+        }
         float rand = Random.Range(0, 2);
         if (rand < 1)
         {

@@ -31,9 +31,8 @@ public class GameController : MonoBehaviour
         Movement();
         LimitMovement(playerOne);
         LimitMovement(playerTwo);
-        if (playerOneScore == 3 || playerTwoScore == 3)
+        if (playerOneScore == 5 || playerTwoScore == 5)
         {
-            ball.SendMessage("ResetBall");
             ResetGame();
         }
     }
@@ -41,10 +40,11 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         restartButton.SetActive(false);
-        ball.SendMessage("GoBall");
+        ball.SendMessage("GoBall", 1);
     }
     void ResetGame()
     {
+        ball.SendMessage("ResetBall");
         playerOneScore = 0;
         score1.GetComponent<TextMeshProUGUI>().SetText(playerOneScore.ToString());
         playerTwoScore = 0;
